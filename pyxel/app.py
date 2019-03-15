@@ -118,8 +118,10 @@ class App:
         pyxel.frame_count = 0
 
         # initialize window
-        if not glfw.init():
-            exit()
+        try:
+            glfw.init()        
+        except:
+            pass
 
         monitor = glfw.get_primary_monitor()
         display_width, display_height = glfw.get_video_mode(monitor)[0]
